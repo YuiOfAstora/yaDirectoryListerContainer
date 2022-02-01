@@ -10,5 +10,22 @@ steps:
       auto_tag: true
       build_args_from_env: [ DRONE_TAG ]
 
+  - name: Push image to Dockerhub. 
+    image: plugins/docker
+    settings:
+      repo: burnedvpn/directorylister
+      username: burnedvpn
+      password:
+        from_secret: dockerhub_password
+      auto_tag: true
+      build_args_from_env: [ DRONE_TAG ]
+
 trigger:
   event: [ tag ]
+
+---
+kind: secret
+name: dockerhub_password
+get:
+  path: secrets/data/users
+  name: burnedvpn@dockerhub
