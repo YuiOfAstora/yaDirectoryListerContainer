@@ -30,7 +30,7 @@ version: "2.1"
 services:
   directorylister:
     container_name: directorylister
-    image: registry.battlenet.work/burnedvpn/directorylister
+    image: docker.io/burnedvpn/directorylister
     ports: [ 8008:80 ]
     environment:
       - READMES_FIRST=true # Displays README.md's at the top of the page
@@ -48,7 +48,7 @@ podman run -d \
   -p 8008:80 \
   -e DISPLAY_READMES=false # Displays README.md's at the top of the page
   -v /path/to/dir:/var/www/html/dir \
-  registry.battlenet.work/burnedvpn/directorylister
+  docker.io/burnedvpn/directorylister
 ```
 
 ## Parameters
@@ -56,10 +56,10 @@ podman run -d \
 | Parameter | Description |
 | :-: | :-: |
 | -p 8008:80 | This forwards port `80` in the container to port `8008` on the host |
-| -v `/path/to/dir`:/var/www/html/`dir` | Do not replace the root `/var/www/html` directory as it will cause the Directory Lister app to not work. Any directories you want listed should be a subdirectory of `/var/www/html` in the container |
+| -v `/path/to/dir`:/var/www/html/`dir` | Do not replace the root `/var/www/html` directory as it will cause the Directory Lister app to not work.<br/>Any directories you want listed should be a subdirectory of `/var/www/html` in the container |
 
 ## Environment Variables
 
 This container can utilize all Directory Lister Environment Variables. [Click Here](https://docs.directorylister.com/configuration/app-config-reference) to see the official documentation.
 
-For example, if you'd like to hide `README.md` files, you can pass `-e DISPLAY_READMES=false` to the `cli` command above.
+For example, if you'd like to hide `README.md` files, you can pass `-e DISPLAY_READMES=false` to the [cli](#cli) command above.
