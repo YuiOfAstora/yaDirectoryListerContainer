@@ -17,7 +17,7 @@ steps:
       build_args_from_env: [ DRONE_TAG ]
       password:
         from_secret: dockerhub_password
-      repo: docker.io/burnedvpn/directorylister
+      repo: burnedvpn/directorylister
       username: burnedvpn
 
   - name: Push image to GitHub.
@@ -31,7 +31,7 @@ steps:
       username: burnedvpn
 
 trigger:
-  event: [ tag, push ]
+  event: [ push, tag ]
 
 ---
 kind: secret
