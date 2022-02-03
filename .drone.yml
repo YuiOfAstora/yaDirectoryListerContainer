@@ -6,19 +6,29 @@ steps:
   - name: Push image to local registry.
     image: plugins/docker
     settings:
-      repo: registry.battlenet.work/burnedvpn/directorylister
       auto_tag: true
       build_args_from_env: [ DRONE_TAG ]
+      repo: registry.battlenet.work/burnedvpn/directorylister
 
-  - name: Push image to Dockerhub. 
+  - name: Push image to Dockerhub.
     image: plugins/docker
     settings:
-      repo: burnedvpn/directorylister
-      username: burnedvpn
-      password:
-        from_secret: dockerhub_password
       auto_tag: true
       build_args_from_env: [ DRONE_TAG ]
+      password:
+        from_secret: dockerhub_password
+      repo: docker.io/burnedvpn/directorylister
+      username: burnedvpn
+
+  - name: Push image to GitHub.
+    image: plugins/docker
+    settings:
+      auto_tag: true
+      build_args_from_env: [ DRONE_TAG ]
+      password:
+        from_secret: github_password
+      repo: ghcr.io/burnedvpn/directorylister
+      username: burnedvpn
 
 trigger:
   event: [ tag ]
@@ -29,3 +39,10 @@ name: dockerhub_password
 get:
   path: secrets/data/users
   name: burnedvpn@dockerhub
+
+---
+kind: secret
+name: github_password
+get:
+  path: secrets/data/software/drone
+  name: github_secret
