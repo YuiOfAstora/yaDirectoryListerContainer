@@ -11,4 +11,4 @@ steps:
       repo: registry.battlenet.work/burnedvpn/directorylister
 
 trigger:
-  event: [ tag ]
+  event: [ push, tag ]

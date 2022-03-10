@@ -1,6 +1,7 @@
 FROM docker.io/php:7.4-apache
 
 ARG DRONE_TAG
+ENV version=3.11.0
 ENV version=${DRONE_TAG}
 LABEL maintainer="burnedvpn"
 
