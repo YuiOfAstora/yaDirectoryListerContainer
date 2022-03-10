@@ -1,6 +1,6 @@
 # Directory Lister
 
-[![Build Status](https://ci.battlenet.work/api/badges/containers/DirectoryLister/status.svg)](https://ci.battlenet.work/containers/DirectoryLister)
+[![Build Status](https://ci.battlenet.work/api/badges/container/DirectoryLister/status.svg)](https://ci.battlenet.work/container/DirectoryLister)
 
 This is a container (Podman/Docker) ready version of Directory Lister.
 
