@@ -1,53 +1,14 @@
 # Directory Lister
 
-This is a container (Podman/Docker) ready version of Directory Lister.
-
+This is a container (Docker) version of Directory Lister.
+Fork From https://github.com/burnedvpn/container-DirectoryLister
 [Directory Lister](https://github.com/DirectoryLister/DirectoryLister) is the easiest way to expose the contents of any web-accessible folder for browsing and sharing.
-
-- [Directory Lister](#directory-lister)
-  - [Version Tags](#version-tags)
-  - [Usage](#usage)
-    - [docker-compose](#docker-compose)
-    - [cli](#cli)
-  - [Parameters](#parameters)
-  - [Environment Variables](#environment-variables)
-
-## Version Tags
-
-This image follows the [semver](https://semver.org/) of the [Directory Lister](https://github.com/DirectoryLister/DirectoryLister) project starting with version `3.10.1`.
 
 ## Usage
 
-This container can be used easily with Docker or Podman. Any files/directories you want to expose must have read permissions for `Other` users.
+This container can be used easily with Docker. Any files/directories you want to expose must have read permissions for `Other` users.
 
-### docker-compose
 
-```
----
-version: "2.1"
-services:
-  directorylister:
-    container_name: directorylister
-    image: docker.io/burnedvpn/directorylister
-    ports: [ 8008:80 ]
-    environment:
-      - READMES_FIRST=true # Displays README.md's at the top of the page
-    volumes:
-    - /path/to/dir:/var/www/html/dir # Exposes /path/to/dir as a subdirectory.
-```
-
-### cli
-
-The `podman` command is interchangeable with `docker`
-
-```
-podman run -d \
-  --name=directorylister
-  -p 8008:80 \
-  -e DISPLAY_READMES=false # Displays README.md's at the top of the page
-  -v /path/to/dir:/var/www/html/dir \
-  docker.io/burnedvpn/directorylister
-```
 
 ## Parameters
 

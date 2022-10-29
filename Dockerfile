@@ -1,7 +1,6 @@
 FROM docker.io/php:7.4-apache
 
-ARG DRONE_TAG
-ENV version=${DRONE_TAG}
+ENV version="3.12.0"
 LABEL maintainer="burnedvpn"
 
 RUN apt update && apt install -y \
